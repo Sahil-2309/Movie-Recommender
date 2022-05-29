@@ -10,7 +10,7 @@ posters=pickle.load(open('posters.pkl','rb'))
 app=Flask(__name__)
 @app.route('/')
 def index():
-    return render_template('Templates/home.html',
+    return render_template('home.html',
                            title=list(movies['title'].values),
                            overview=list(movies['overview'].values),
                            ratings=list(movies['vote_average'].values),
@@ -19,7 +19,7 @@ def index():
 
 @app.route('/recommend')
 def recommend():
-    return render_template('Templates/recommended.html',
+    return render_template('recommended.html',
                            title=list(movies['title'].values),
                            overview=list(movies['overview'].values),
                            ratings=list(movies['vote_average'].values),
@@ -44,7 +44,7 @@ def same():
         ratings.append(movie.iloc[i].vote_average)
         poster.append(movie.iloc[i].posters)
 
-    return render_template('Templates/movies.html',
+    return render_template('movies.html',
                            films=films,
                            plot=overview,
                            ratings=ratings,
@@ -53,4 +53,4 @@ def same():
                            )
 
 if __name__=='__main__':
-    app.run(debug=False,host='0.0.0.0')
+    app.run(debug=True)
