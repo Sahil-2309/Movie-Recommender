@@ -1,1 +1,1 @@
-web:guicorn uiflask:app
+web:guicorn app:app
