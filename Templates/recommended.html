@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Microsoft Engage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
+    </script>
+
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<style>
+
+body {
+	font-family: "Baloo 2", cursive;
+	font-size: 16px;
+	color: #ffffff;
+	text-rendering: optimizeLegibility;
+	font-weight: initial;
+}
+.btn-purple-moon {
+    background: #4e54c8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    border: 3px solid #eee;
+}
+.btn-rounded {
+    border-radius: 35px;
+}
+.btn-cool-blues {
+    background: #2193b0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    border: 3px solid #eee;
+}
+.btn-dark-moon {
+    background: #141E30;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    border: 3px solid #eee;
+}
+.neonText {
+  color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #bc13fe,
+    0 0 82px #bc13fe,
+    0 0 92px #bc13fe,
+    0 0 102px #bc13fe,
+    0 0 151px #bc13fe;
+}
+   </style>
+</head>
+<body style="background-image: url('https://coolbackgrounds.io/images/backgrounds/index/compute-ea4c57a4.png');">
+<nav class="navbar navbar-expand-lg bg-dark" style="height:55px;background-color:#121212">
+  <div class="container-fluid"  style="line-height:10px">
+   <a id="uhfLogo" class="c-logo c-sgl-stk-uhfLogo" itemprop="url" aria-label="Microsoft" data-m="{&quot;cN&quot;:&quot;GlobalNav_Logo_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c4c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c4c1m1r1a1&quot;}" style="overflow-x: visible;">
+                        <img alt="" itemprop="logo" class="c-image" src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31" role="presentation" aria-hidden="true" style="overflow-x: visible;margin-left:30px" height="28" width="140">
+                    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"  style="line-height:10px">
+            <form action="/">
+            <button class="col btn btn-purple-moon btn-rounded" type="submit"  aria-current="page" href="/home" style="margin-left:30px">Home</button></li>
+</form>
+          <li class="nav-item">
+                 <a href="https://github.com/Sahil-2309" target="_blank">  <button class="col btn btn-dark-moon btn-rounded" type="button"  aria-current="page" style="margin-left:30px">GitHub link</button>
+        </a></a></li></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+    <div class ="col">
+        <div class="col-14">
+<h1 class="text-grey" style="font-size=50px;color:white;"><center>Movie Recommender</center></h1>
+        </div>
+<div>
+     <form action="/samemovie" , method="post",autocomplete="on">
+        <input name="uinput" class="form-control " type="text" placeholder="Enter movie name" aria-label="Search" id="tags" required><br>
+          <script>
+  $( function() {
+    var Tags = [
+        {% for i in title %}
+            "{{i}}",
+        {% endfor %}
+    ];
+    $( "#tags" ).autocomplete({
+      source: Tags
+    });
+  } );
+  </script>
+          <button type="submit" class="btn btn-info" style="margin-top:10px;background:#0bfff8;" href="/recommended">Show similar</button>
+      </form>
+    <br>
+    <section class="wrapper">
+  <div class="container">
+
+<div class="row">
+ <div class="row-md-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://w0.peakpx.com/wallpaper/241/159/HD-wallpaper-black-stars-black-aesthetic.jpg');">
+
+
+         <div class="card-body">
+            <h4 class="card-title mt-0"  style="max-width: 100rem"><p class="neonText">This is a content-based recommendation system for movie recommendations.
+The movies data is taken from
+Tmdb movies dataset for 5000 movies.</p><p>On the “Home” page the movies are sorted according to their ratings, movies with the highest ratings are shown first and then in descending order.
+On the next page movies similar to the user’s choice will be presented.
+
+
+</p></h4>
+
+          </div>
+          <div class="card-footer">
+           <div class="media">
+
+  <div class="media-body">
+    <h6 class="my-0 text-white d-block">by :- Sahil Arora</h6>
+     <small></small>
+  </div>
+</div>
+          </div>
+        </div>
+      </div></div>
+
+
+
+</div>
+
+</div>
+</section>
+</div>
+    </div>
+
+    </div>
+</body>
+</html>
